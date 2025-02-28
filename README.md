@@ -1,79 +1,110 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# BudgetNest
 
-# Getting Started
+BudgetNest is a React Native mobile application for personal finance management, offering expense tracking, budget overviews, and visual financial analytics through interactive charts.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Table of Contents
 
-## Step 1: Start the Metro Server
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the App](#running-the-app)
+- [Contributing](#contributing)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Features
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **Financial Overview**: Dashboard with current balance and recent transactions
+- **Expense Tracking**: Add/Edit/Delete income and expense records
+- **Visual Analytics**: Interactive charts for spending patterns
+- **Monthly Budgeting**: Set and track monthly budgets
+- **Category Management**: Manage income and expense categories
+- **Calendar View**: View transactions in a calendar format
+- **Summary View**: Summary of income, expenses, and savings
 
+## Technology Stack
+
+### Frontend
+- **React Native** - Cross-platform mobile framework
+- **React Navigation** - Screen navigation management
+- **React Native Vector Icons** - Icon library
+- **React Native SVG Charts** - for PieChart
+
+### Backend
+- **Node.js** - Runtime environment
+- **Express.js** - REST API framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB object modeling
+
+### Utilities
+- **Axios** - HTTP client
+- **Moment.js** - Date/time manipulation
+- **Dotenv** - Environment variable management
+
+## Installation
+
+### 1. Clone Repository
 ```bash
-# using npm
+git clone https://github.com/yourusername/BudgetNest.git
+cd BudgetNest
+```
+
+### 2. Install Frontend Dependencies
+```bash
+npm install
+```
+
+### 3. Install Backend Dependencies
+```bash
+cd api
+npm install
+cd ..
+```
+
+## Configuration
+
+### Backend Setup
+1. Create `.env` in `/api` directory:
+```env
+MONGODB_URL=mongodb+srv://<username>:<password>@cluster0.ikel3.mongodb.net/
+PORT=8000
+```
+*Replace url with your MongoDB credentials*
+
+### Frontend Setup
+1. Create `.env` in root directory:
+```env
+REACT_APP_BACKEND_URL=http://localhost:8000
+```
+*For Android emulator, use `http://<ip of ur computer>:8000` instead of localhost*
+
+## Running the App
+
+### Start Backend Server
+```bash
+cd api
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Start your Application
+### Start React Native Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
+In a new terminal:
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+npx react-native run-android
+# or for iOS
+npx react-native run-ios
 ```
 
-### For iOS
-
+In another terminal:
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npx react-native start
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Contributing
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**Note**: This application requires an active internet connection for MongoDB Atlas integration.
