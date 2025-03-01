@@ -15,6 +15,7 @@ const AccountsScreen = () => {
     try {
       const response = await axios.get(`${Config.BACKEND_URL}/allExpenses`);
       setExpenses(response.data);
+      console.log('Expenses', response.data);
     } catch (error) {
       console.log('Error', error);
     }

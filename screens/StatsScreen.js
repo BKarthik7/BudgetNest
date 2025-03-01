@@ -61,9 +61,14 @@ const StatsScreen = () => {
   };
 
   const RenderPieChart = () => {
-    const data = [
-      50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80,
-    ];
+    if (expenses.length === 0) {
+      return (
+        <View
+          style={{paddingHorizontal: 16, alignItems: 'center', marginTop: 10, height: 30}}>
+          <Text>No expenses</Text>
+        </View>
+      );
+    }
 
     const randomColor = () =>
       ('#' + ((Math.random() * 0xffffff) << 0).toString(16) + '000000').slice(
@@ -134,9 +139,14 @@ const StatsScreen = () => {
   };
 
   const RenderPieChartExpense = () => {
-    const data = [
-      50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80,
-    ];
+    if (expenses.length === 0) {
+      return (
+        <View
+          style={{paddingHorizontal: 16, alignItems: 'center', marginTop: 20, height: 40}}>
+          <Text>No expenses</Text>
+        </View>
+      );
+    }
 
     const randomColor = () =>
       ('#' + ((Math.random() * 0xffffff) << 0).toString(16) + '000000').slice(
@@ -245,7 +255,7 @@ const StatsScreen = () => {
               ?.filter(item => item.type === 'Income')
               .map((item, index) => (
                 <Pressable
-                  key={index} 
+                  key={index}
                   style={{
                     backgroundColor: 'white',
                     borderTopColor: '#E0E0E0',
@@ -318,7 +328,7 @@ const StatsScreen = () => {
               ?.filter(item => item.type === 'Expense')
               .map((item, index) => (
                 <Pressable
-                  key={index} 
+                  key={index}
                   style={{
                     backgroundColor: 'white',
                     borderTopColor: '#E0E0E0',
